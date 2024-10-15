@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">Weather App</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="tables.html">Tables</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <header>
+                <input type="text" id="cityInput" placeholder="Enter city name">
+                <button id="getWeather">Get Weather</button>
+            </header>
+            <section id="weatherWidget" class="weather-widget">
+                <!-- Weather data will be inserted here -->
+            </section>
+            <section class="charts">
+                <div class="chart-container">
+                    <h3>Temperature Forecast (5 days)</h3>
+                    <canvas id="tempChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Weather Conditions (5 days)</h3>
+                    <canvas id="conditionChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Temperature Changes (5 days)</h3>
+                    <canvas id="tempChangeChart"></canvas>
+                </div>
+            </section>
+            <section class="chatbot">
+                <div id="chatMessages" class="chat-messages"></div>
+                <input type="text" id="chatInput" placeholder="Ask about the weather...">
+                <button id="sendMessage">Send</button>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
