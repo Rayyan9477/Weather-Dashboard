@@ -3,32 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5-Day Forecast</title>
+    <title>Weather Tables</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <aside class="sidebar">
+        <div class="sidebar">
             <div class="logo">Weather App</div>
             <nav>
                 <ul>
                     <li><a href="index.html">Dashboard</a></li>
-                    <li><a href="#" class="active">Tables</a></li>
+                    <li><a href="tables.html" class="active">Tables</a></li>
                 </ul>
             </nav>
-        </aside>
-        <main class="content">
-            <header>
-                <h1>5-Day Forecast</h1>
-            </header>
-            <section id="forecastTable" class="forecast-table">
-                <!-- Forecast data will be inserted here -->
-            </section>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <div class="search-bar">
+                    <input type="text" id="cityInput" placeholder="Enter city name">
+                    <button id="getWeather">Get Weather</button>
+                </div>
+                <div class="user-profile"></div>
+            </div>
+            <div id="forecastTable"></div>
             <div class="pagination">
                 <button id="prevPage">Previous</button>
                 <button id="nextPage">Next</button>
             </div>
-        </main>
+        </div>
+    </div>
+    <div class="chatbot">
+        <div class="chat-header">
+            Weather Chatbot
+            <button id="toggleChat">▼</button>
+        </div>
+        <div class="chat-content">
+            <div id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ask about weather...">
+            </div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
