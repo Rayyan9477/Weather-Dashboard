@@ -26,6 +26,12 @@
                 </div>
                 <div class="user-profile"></div>
             </div>
+            <div class ="filters">
+                <button id ="sortAsc">Sort Ascending</button>
+                <button id ="sortDesc">Sort Descending</button>
+                <button id ="filterRain">Filter Rain</button>
+                <button id ="highestTemp">Highest Temperature</button>
+            </div>
             <div id="forecastTable"></div>
             <div class="pagination">
                 <button id="prevPage">Previous</button>
@@ -46,5 +52,36 @@
         </div>
     </div>
     <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const city = localStorage.getItem('city');
+            if (city) {
+                document.getElementById('cityInput').value = city;
+                fetchWeatherData(city);
+            }
+        });
+
+        document.getElementById('sortAsc').addEventListener('click', function() {
+            forecastData.sort((a, b) => a.main.temp - b.main.temp);
+            displayForecastTable();
+        });
+
+        document.getElementById('sortDesc').addEventListener('click', function() {
+            forecastData.sort((a, b) => b.main.temp - a.main.temp);
+            displayForecastTable();
+        });
+
+        document.getElementById('filterRain').addEventListener('click', function() {
+            forecastData = forecastData.filter(item => item.weather[0].main === 'Rain');
+            displayForecastTable();
+        });
+
+        document.getElementById('highestTemp').addEventListener('click', function() {
+            forecastData.sort((a, b) => b.main.temp - a.main.temp);
+            displayForecastTable();
+        });
+
+    </script>
+    </script>
 </body>
 </html>

@@ -33,7 +33,18 @@ chatInput.addEventListener('keypress', function(event) {
 getWeatherButton.addEventListener('click', function() {
     const city = cityInput.value;
     if (city.trim() !== '') {
+        // Save the city name in local storage
+        localStorage.setItem('city', city);
         fetchWeatherData(city);
+    }
+});
+
+// Load the saved city from local storage on page load and fetch weather data
+window.addEventListener('load', function() {
+    const savedCity = localStorage.getItem('city');
+    if (savedCity) {
+        cityInput.value = savedCity;
+        fetchWeatherData(savedCity);
     }
 });
 
@@ -55,6 +66,7 @@ toggleChatButton.addEventListener('click', function() {
     chatContent.classList.toggle('collapsed');
     toggleChatButton.textContent = chatContent.classList.contains('collapsed') ? '▲' : '▼';
 });
+
 
 function addChatMessage(message, sender) {
     const messageElement = document.createElement('div');
